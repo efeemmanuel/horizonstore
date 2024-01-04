@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+       
+
+        {{pagetitle}}
+
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bahnschrift">
+
+
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+        
+
+
+    <link rel="stylesheet" href="{% static './css/all.css' %}">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="{% static './css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <!-- internal   Stylesheet -->
+	<style>
+        .but {
+            font-size: 22px;
+		    padding-top: 3px;
+            padding-right: 30px;
+            padding-left: 30px;
+            padding-bottom: 3px;
+            background-color: #7fad39;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .but:hover {
+            background-color: #ffffff;
+            color: #7fad39;
+            border: 1px solid #7fad39;
+        }
+        /* Example styles for the login form */
+        .login-form {
+        margin: 0 auto;
+        /* max-width: 300px;
+        padding: 20px; */
+        /* background-color: #f7f7f7; */
+        /* border: 1px solid #ccc;
+        border-radius: 5px; */
+        }
+
+        .login-form label {
+        display: block;
+        margin-bottom: 10px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        }
+	
+       /* Example styles for the password-reset-form */
+        .password-reset-form {
+        margin: 0 auto;
+        /* max-width: 300px;
+        padding: 20px; */
+        /* background-color: #f7f7f7; */
+        /* border: 1px solid #ccc;
+        border-radius: 5px; */
+        }
+        .password-reset-form input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        }
+	</style>
+	
+	<!-- internal   Stylesheet -->
+
+
+</head>
+
+<body>
+
+         <!-- Navbar Start -->
+         <!-- <div class="container mt-4">
+            <div class="row">
+                <div class="col navvv">
+                    <nav class="navbar navbar-expand-lg navbar-light nav_color">
+                        <a class="navbar-brand" href="/">
+                            <img src="{% static './img/AgroFarm.png' %}">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> 
+                          <div class="navbar-nav nav_items">
+                            <a class="nav-item nav-link  mr-4 mt-2" href="/">HOME </a>
+                            <a class="nav-item nav-link mr-4 mt-2" href="/contact">contact</a>
+                            
+							{%if request.user.is_authenticated %}
+							<a class="nav-item nav-link mr-4 mt-2" href="/logout">Sign out</a>
+                            <a href="/dashboard">
+                            <button class="mr-4 btn">MARKET</button> </a>
+							{%else%}
+							 <a href="/login" class="nav-item nav-link mt-2">Sign in</a>
+							 <a href="/signup" class="nav-item nav-link ">
+                                <button class="mr-4 btn"><span class="sign_up">Sign up</span></button> </a>
+							 {%endif%}
+                            
+                          </div>
+                        </div>
+                      </nav>
+                </div>
+            </div>
+         </div> -->
+          <!-- Navbar ends -->
+		  
+
+		  
+                
+
+
+
+ {%block forms%}  {% endblock %}
+
+
+
+
+
+
+</body>
+<script src="{% static './jss/jquery.js' %}"></script>
+<script src="{% static './jss/bootstrap.min.js' %}"></script>
+</html>

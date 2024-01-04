@@ -1,0 +1,53 @@
+{% extends 'registration/base1.html' %}
+{% load static %}
+{% block forms %}
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+			<img src="{% static 'img/signup.png' %}" alt="...">
+			</div>
+			
+			
+			<div class="col">
+			<form method="POST">
+			{% csrf_token %}
+		
+			
+			
+			<div class="form-group">
+			{{ form.username }}
+			</div>	
+			<br>
+			<div class="form-group">
+			{{ form.first_name }}
+			</div>	
+			<br>
+			<div class="form-group">
+			{{ form.last_name }}
+			</div>	
+			<br>
+			<div class="form-group">
+			{{ form.email }}
+			</div>	
+			<br>
+			<div class="form-group">
+			{{ form.password1 }}
+			</div>	
+			<br>
+			<div class="form-group">
+			{{ form.password2 }}
+			</div>	
+			
+			<div style="padding: 20px;">
+			<span>have an account?<a href="/login"> Sign in</a></span>
+			</div>
+
+			<input type="submit" class="but" value="sign up" >
+		    </form>
+		    
+
+			</div>
+		</div>	
+	</div>
+{% endblock %}

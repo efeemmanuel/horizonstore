@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block search %}  
+ 
+ {% if query %}
+    <div>
+        <div>
+        <!-- check if there is a result in the database-->
+        {% if posts %}
+            <!-- loop through search query if there is a result -->
+            
+              <section class="product spad">
+             <div class="container">
+			 <div class="row">
+			 <div class="col-lg-9 col-md-7">
+			 <div class="row">
+			 {% for post in posts %}
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ post.item_photo.url }}">
+                                    <ul class="product__item__pic__hover">
+                                       
+                                        <button value="{{ post.id }}"  class="fa fa-shopping-cart add_to "></button>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="shopdetails{{ post.id }}">{{ post.name }}</a></h6>
+									
+                                    <h5>{{ post.price }}</h5>
+                                </div>
+                            </div>
+                        </div>
+						
+			{% endfor %}
+			 </div>
+			 </div>
+			 </div>
+			 </div>
+			 </section> 
+            
+            <!-- return a message if there are no results found. -->
+        {% else %}
+            <h3>No search results found</h3>
+        {% endif %}
+        </div>
+    </div>
+{% else %}
+    <h1>Please enter a search query</h1>
+{% endif %}
+ 
+ 
+  {% endblock %}
+ 
+ 
+ 
+
+

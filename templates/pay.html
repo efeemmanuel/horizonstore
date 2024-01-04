@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block shop %} 
+<div class="container">
+    <div class="row">
+        <div class="col">
+<form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+
+                            <input type="hidden" name="public_key" value="FLWPUBK_TEST-acc3fabea2750cef141525640ea63491-X" />
+                            <input type="hidden" name="customer[email]" value="jessepinkman@walterwhite.org" />
+                            <input type="hidden" name="customer[name]" value="Jesse Pinkman" />
+                            <input type="hidden" name="tx_ref" value="bitethtx-019203" />
+                            <input type="hidden" name="amount" value="3400" />
+                            <input type="hidden" name="currency" value="NGN" />
+                            <input type="hidden" name="meta[token]" value="54" />
+                            <input type="hidden" name="redirect_url" value="/" />
+                            <button type="submit" id="start-payment-button" class="place">Pay Now</button>
+                          </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <script src="https://checkout.flutterwave.com/v3.js"></script> 
+		
+	
+		
+		
+
+
+   <button type="button" id="start-payment-button" onclick="makePayment()">Pay Now</button> 
+
+
+< <script>
+
+let cart_total = "{{cart.calculate_total_price}}"
+let cart_id = "{{cart.id}}"
+
+
+  function makePayment() {
+    FlutterwaveCheckout({
+      public_key: "FLWPUBK_TEST-acc3fabea2750cef141525640ea63491-X",
+      tx_ref: "titanic-48981487343MDI0NzMx",
+      amount: cart_total,
+      currency: "USD",
+      payment_options: "card, mobilemoneyghana, ussd",
+      redirect_url: "http://127.0.0.1:8000/confirm_payment/"+cart_id,
+      meta: {
+        consumer_id: 23,
+        consumer_mac: "92a3-912ba-1192a",
+      },
+      customer: {
+        email: "rose@unsinkableship.com",
+        phone_number: "08102909304",
+        name: "{{request.user.username}}",
+      },
+      customizations: {
+        title: "Horizon Store",
+        description: "Payment for an awesome cruise",
+        logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+      },
+    });
+  }
+
+</script> 
+
+{% endblock %}
+
