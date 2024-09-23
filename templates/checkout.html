@@ -3,25 +3,50 @@
 
 {% block shop %} 
  
+
+<style>
+	input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="checkbox"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 120%;
+}
+
+</style>
+
 <div class="container">
 	<div class="row">
+
+
+
+
+
 		<div class="col">
-				 <h1>Checkout</h1><br><br>
-    <form method="POST" action="/checkout">
+		<h1>Checkout</h1><br><br>
+    	<form method="POST" action="/checkout">
         {% csrf_token %}
         
 		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">first name</label>:<br>
-		{{ form.firstname }}
-	    </div>
+			<div class="row">
+				<div class="form-group" style="margin-right: 8%;">
+					<label for="{{ form.firstname.id_for_label }}">first name</label>:<br>
+					{{ form.firstname }}
+					</div>
+					<div class="form-group">
+						<label for="{{ form.firstname.id_for_label }}">lasttname</label>:<br>
+						{{ form.lastname }}
+						</div>
+			</div>
+
 		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">lasttname</label>:<br>
-		{{ form.lastname }}
-	    </div>
 		
-		<div class="form-group">
+		
+		<div class="row">
+		<div class="form-group" style="margin-right: 8%;">
 		<label for="{{ form.firstname.id_for_label }}">address</label>:<br>
 		{{ form.address }}
 	    </div>
@@ -30,9 +55,10 @@
 		<label for="{{ form.firstname.id_for_label }}">country</label>:<br>
 		{{ form.country }}
 	    </div>
+		</div>
 
-		
-		<div class="form-group">
+		<div class="row">
+		<div class="form-group" style="margin-right: 8%;">
 		<label for="{{ form.firstname.id_for_label }}">state</label>:<br>
 		{{ form.state }}
 	    </div>
@@ -42,9 +68,10 @@
 		<label for="{{ form.firstname.id_for_label }}">city/region</label>:<br>
 		{{ form.city }}
 	    </div>
+		</div>
 	
-		
-		<div class="form-group">
+		<div class="row">
+		<div class="form-group" style="margin-right: 8%;">
 		<label for="{{ form.firstname.id_for_label }}">zip code</label>:<br>
 		{{ form.zip_code }}
 	    </div>
@@ -53,6 +80,7 @@
 		<label for="{{ form.firstname.id_for_label }}">phone number</label>:<br>
 		{{ form.phone_number }}
 	    </div>
+		</div>
 		
 		</div>
 
@@ -79,10 +107,6 @@
                                 <div class="checkout__order__total">Total <span>${{ cart.total_price }}</span></div>
 								
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
-                               
-								
                                
                              
                             </div>
@@ -109,110 +133,4 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	 <h1>Checkout</h1>
-    <form method="POST" action="/checkout">
-        {% csrf_token %}
-        
-		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">firstname</label>
-		{{ form.firstname }}
-	    </div>
-		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">firstname</label>
-		{{ form.lastname }}
-	    </div>
-		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">lastname</label>
-		{{ form.address }}
-	    </div>
-		<br><br>
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">country</label>
-		{{ form.country }}
-	    </div>
-		<br><br>
-		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">state</label>
-		{{ form.state }}
-	    </div>
-		<br><br>
-		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">city/region</label>
-		{{ form.city }}
-	    </div>
-		<br><br>
-		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">zip code</label>
-		{{ form.zip_code }}
-	    </div>
-		
-		<div class="form-group">
-		<label for="{{ form.firstname.id_for_label }}">phone number</label>
-		{{ form.phone_number }}
-	    </div>
-		
-		
-
-		
-		
-		
-		
-	
-		
-					 <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4>Your Order</h4>
-								<h3>{{request.user.username}}</h3>
-                                <div class="checkout__order__products">Products <span>Total</span></div>
-								
-                                <ul>
-								{% for item in items %}
-                                    <li>{{ item.product.name }}<span>${{ item.product.price }}</span></li>
-                                  {% endfor %}
-                                </ul>
-							
-								<div class="checkout__order__subtotal">Items <span>{{ cart.num_of_items }}</span></div>
-                                <div class="checkout__order__subtotal">Subtotal <span>${{ cart.total_price }}</span></div>
-                                <div class="checkout__order__total">Total <span>${{ cart.total_price }}</span></div>
-								<div class="checkout__order__total">Discount <span>${{ cart.discounted_price }}</span></div>
-
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
-                               
-								
-                               
-                             
-                            </div>
-                        </div>
-		
-		
-		
-		
-		
-
-
-        <button type="submit">Place Order</button>
-    </form>
 	
