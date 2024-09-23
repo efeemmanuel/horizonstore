@@ -1,53 +1,255 @@
-{% extends 'registration/base1.html' %}
 {% load static %}
-{% block forms %}
 
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col">
-			<img src="{% static 'img/signup.png' %}" alt="...">
-			</div>
-			
-			
-			<div class="col">
-			<form method="POST">
-			{% csrf_token %}
-		
-			
-			
-			<div class="form-group">
-			{{ form.username }}
-			</div>	
-			<br>
-			<div class="form-group">
-			{{ form.first_name }}
-			</div>	
-			<br>
-			<div class="form-group">
-			{{ form.last_name }}
-			</div>	
-			<br>
-			<div class="form-group">
-			{{ form.email }}
-			</div>	
-			<br>
-			<div class="form-group">
-			{{ form.password1 }}
-			</div>	
-			<br>
-			<div class="form-group">
-			{{ form.password2 }}
-			</div>	
-			
-			<div style="padding: 20px;">
-			<span>have an account?<a href="/login"> Sign in</a></span>
-			</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-			<input type="submit" class="but" value="sign up" >
-		    </form>
-		    
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-			</div>
-		</div>	
-	</div>
-{% endblock %}
+.container {
+    display: flex;
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+}
+
+.form-section {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="checkbox"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.checkbox-group label a {
+    color: #3E36B0;
+    text-decoration: none;
+}
+
+button,
+input[type="submit"] {
+    background-color: #e0e0e0;
+    color: #ccc;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #7fad39;
+    color: #ffffff;
+}
+
+.info-section {
+    flex: 1;
+    background-color: #7fad39;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    position: relative;
+	
+}
+
+.info-content {
+    text-align: center;
+	color: white;
+}
+
+.info-content img {
+    width: 300px;
+   height: 300px;
+    border-radius: 5%;
+    margin-bottom: 20px;
+}
+
+.invoice-created {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFE9D6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.invoice-created .icon {
+    color: #7fad39;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        box-shadow: none;
+    }
+
+    .form-section {
+        margin-top: 60%;
+    }
+
+    .info-section {
+        visibility: hidden;
+        
+    }
+    
+}
+
+
+
+</style>
+<body>
+    <div class="container">
+
+
+    
+        <div class="form-section">
+            <a href="/" class="back-link">← Go back</a>
+            <h1>Let's get started!</h1>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Username Field -->
+                <div class="form-group">
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+
+				<!-- Username Field -->
+                <div class="form-group">
+                    {{ form.first_name }}
+                    {{ form.first_name.errors }}
+                </div>
+
+				<!-- Username Field -->
+                <div class="form-group">
+                    {{ form.last_name }}
+                    {{ form.last_name.errors }}
+                </div>
+                
+                <!-- Email Field -->
+                <div class="form-group">
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+
+                <!-- Password1 Field -->
+                <div class="form-group">
+                    {{ form.password1 }}
+                    {{ form.password1.errors }}
+                </div>
+
+                <!-- Password2 Field -->
+                <div class="form-group">
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+                </div>
+
+             
+
+                <div style="padding: 20px;">
+                    <span>Already have an account? <a href="/login">Sign in</a></span>
+                </div>
+
+                <input type="submit" class="but btnss" value="Sign up">
+            </form>
+        </div>
+
+
+        
+        <div class="info-section">
+            <div class="info-content">
+                <img src="{% static 'img/signup.png' %}">
+               
+                <h2 style="color: white;">Seamless Shopping!</h2>
+                <p style="color: white;">Experience the best shopping at a GO!</p>
+            </div>
+        </div>
+
+
+
+       
+    </div>
+</body>
+</html>
