@@ -4,7 +4,46 @@
    
 </head>
 
+
 {% block shop %}
+
+    <style>
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .quantity-control button {
+            background-color: #7fad39;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .quantity-control button:hover {
+            background-color: #7fad39;
+        }
+
+        .quantity-control input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            height: 40px;
+            font-size: 16px;
+        }
+    </style>
 
 
     <!-- Shoping Cart Section Begin -->
@@ -31,29 +70,22 @@
                                         <img src="{{ item.product.item_photo.url }}" alt="">
                                         <h5>{{ item.product.name }}</h5>
                                     </td>
-                                    <td class="shoping__cart__price">
+                                    <td class="shoping__cart__price" data-price="{{ item.id }}">
                                         ${{ item.product.price }}
                                     </td>
-									
-									
-									
+
                                     <td class="shoping__cart__quantity">
                                        
 										
-                                        <div class="">
-                                            <button class="reduce-quantity " data-item-id="{{ item.id }}"></button>
-                                             <input type="text" value="{{ item.quantity }}" data-quantity="{{ item.id }}" readonly>
-                                             <button class="increase-quantity" data-item-id="{{ item.id }}"></button>
-                                          </div>
+                                        <div class="quantity-control">
+										<button class="reduce-quantity" data-item-id="{{ item.id }}">-</button>
+										<input type="text" value="{{ item.quantity }}" data-quantity="{{ item.id }}" readonly>
+										<button class="increase-quantity" data-item-id="{{ item.id }}">+</button>
+									</div>
 										
                                     </td>
 
-                               
-
-									
-									
-									
-                                    <td class="shoping__cart__total">
+                                    <td class="shoping__cart__total" data-total="{{ item.id }}">
                                         ${{ item.price }}
                                     </td>
                                     <td class="shoping__cart__item__close">
@@ -75,24 +107,7 @@
                         <a href="/cart" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                             Upadate Cart</a>
                     </div>
-                </div>
-                <!-- <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-							
-									
-								<form method="post" action="/apply_coupon">
-                                        {% csrf_token %}
-                                        {{ coupon_form }}
-                                        <button type="submit">Apply Coupon</button>
-                                </form>
 
-							
-                        </div>
-                    </div>
-
-                </div> -->
 
 
                 <div class="col-lg-6">
@@ -121,3 +136,26 @@
     <!-- Shoping Cart Section End -->
 
 {% endblock %}
+
+
+
+
+
+</div>
+<!-- <div class="col-lg-6">
+    <div class="shoping__continue">
+        <div class="shoping__discount">
+            <h5>Discount Codes</h5>
+            
+                    
+                <form method="post" action="/apply_coupon">
+                        {% csrf_token %}
+                        {{ coupon_form }}
+                        <button type="submit">Apply Coupon</button>
+                </form>
+
+            
+        </div>
+    </div>
+
+</div> -->
