@@ -1,1 +1,1 @@
-# horizonstore
+E-Commerce MVP Web Application
