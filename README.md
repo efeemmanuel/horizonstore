@@ -1,6 +1,5 @@
 E-Commerce MVP Web Application
 Overview
-
 This is a fully functional MVP (Minimum Viable Product) for an e-commerce web application built using Python Django, HTML, CSS, JavaScript, and Bootstrap. The application allows users to browse products, manage a shopping cart, and complete purchases.
 
 Features
